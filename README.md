@@ -48,6 +48,11 @@ Our pipeline concentrated on the **new company’s data**:
 
 The pipeline is organized into multiple Databricks notebooks:
 
+
+### **0_data/**
+- Contains raw datasets (CSV files) placed in **Amazon S3**.  
+- Includes both **historical loads** and **incremental loads** (e.g., `orders_2025_12_31.csv`).
+  
 ### **1_setup/**
 - **dim_date_table_creation.ipynb** → Creates the **Date Dimension** table for fiscal year calculations and aligning transactions.  
 - **setup_catalog.ipynb** → Handles **catalog, schema, and database creation** in Databricks.  
@@ -62,10 +67,6 @@ The pipeline is organized into multiple Databricks notebooks:
 - **1_full_load_fact.ipynb** → Creates the **Sales Fact table** for **historical loads**.  
 - **2_incremental_load_fact.ipynb** → Updates the **Sales Fact table** with **incremental daily loads**.  
 - Both notebooks integrate the **child company’s fact data** with the **parent company’s Gold layer**.  
-
-### **0_data/**
-- Contains raw datasets (CSV files) placed in **Amazon S3**.  
-- Includes both **historical loads** and **incremental loads** (e.g., `orders_2025_12_31.csv`).  
 
 ### **2_dashboarding/**
 - **denormalise_table_query_fmcg.txt** → SQL query for creating a **denormalized table** for BI consumption.  
