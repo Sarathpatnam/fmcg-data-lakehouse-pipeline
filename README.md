@@ -103,7 +103,7 @@ The pipeline is organized into multiple Databricks notebooks:
 ---
 
 ## 📂 Project Structure
-
+```
 project-de-fmcg-atlikon/
 │
 ├── 0_data/                     # Raw datasets (historical + incremental)
@@ -136,3 +136,8 @@ project-de-fmcg-atlikon/
 │   └── project_architecture.png
 │
 └── README.md                    # Project overview
+```
+
+## 🏗️ Architecture Diagram
+
+![Project Architecture](resources/project_architecture.png)
