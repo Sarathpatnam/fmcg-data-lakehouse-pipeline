@@ -107,10 +107,32 @@ The pipeline is organized into multiple Databricks notebooks:
 project-de-fmcg-atlikon/
 │
 ├── 0_data/                     # Raw datasets (historical + incremental)
+│   └── 2_child_company/
+│       └── incremental_load/
+│           └── orders/
+│               └── orders_2025_12_31.csv
+│
 ├── 1_codes/
 │   ├── 1_setup/                 # Setup notebooks (catalog, date table, utilities)
-│   ├── 2_dimension_data_processing/ # Dimension processing (customers, products, pricing)
-│   └── 3_fact_data_processing/  # Fact table processing (full + incremental loads)
+│   │   ├── dim_date_table_creation.ipynb
+│   │   ├── setup_catalog.ipynb
+│   │   └── utilities.ipynb
+│   │
+│   ├── 2_dimension_data_processing/ # Dimension processing
+│   │   ├── 1_customers_data_processing.ipynb
+│   │   ├── 2_products_data_processing.ipynb
+│   │   └── 3_pricing_data_processing.ipynb
+│   │
+│   └── 3_fact_data_processing/  # Fact table processing
+│       ├── 1_full_load_fact.ipynb
+│       └── 2_incremental_load_fact.ipynb
+│
 ├── 2_dashboarding/              # Denormalized queries + dashboards
+│   ├── denormalise_table_query_fmcg.txt
+│   └── fmcg_dashboard.pdf
+│
 ├── resources/                   # Architecture diagrams
+│   ├── databricks_project.excalidraw
+│   └── project_architecture.png
+│
 └── README.md                    # Project overview
